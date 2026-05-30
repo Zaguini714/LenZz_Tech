@@ -7,3 +7,4 @@ A modern one-page website for a website-building service. It includes a polished
 - `index.html` - page content and structure
 - `styles.css` - layout, colors, animation, and responsive design
 - `script.js` - loading screen, scroll reveal, active navigation, and card hover motion
+https://lenzzwebsites.netlify.app/
