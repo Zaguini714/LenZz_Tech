@@ -1,16 +1,22 @@
 const loader = document.querySelector(".loader");
 const reveals = document.querySelectorAll(".reveal");
 const navLinks = document.querySelectorAll(".nav a");
-const sections = [...navLinks].map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+const sections = [...navLinks]
+  .map((link) => link.getAttribute("href"))
+  .filter((href) => href && href.startsWith("#"))
+  .map((href) => document.querySelector(href))
+  .filter(Boolean);
 
-document.body.classList.add("is-loading");
+if (loader) {
+  document.body.classList.add("is-loading");
 
-window.addEventListener("load", () => {
-  window.setTimeout(() => {
-    loader.classList.add("is-hidden");
-    document.body.classList.remove("is-loading");
-  }, 900);
-});
+  window.addEventListener("load", () => {
+    window.setTimeout(() => {
+      loader.classList.add("is-hidden");
+      document.body.classList.remove("is-loading");
+    }, 900);
+  });
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
